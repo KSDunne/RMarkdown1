@@ -2,4 +2,34 @@
 title: "My Homepage"
 ---
 
-Hello I'm Katie, This is my website, that I made using R Markdown!
+# Hello, I'm Katie! I made this website using R Markdown!
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+```{r check-wd}
+getwd()
+```
+
+## Demo of basic R skills 1
+```{r demo basic R skills}
+# Vector
+a_vector <- c(3, 4)
+a_vector
+```
+
+## Demo of basic R skills 2
+```{r demo basic R skills 2}
+# Matrix
+a_matrix <- matrix(c(1, 2, 3, 4),nrow =2, ncol=2)
+a_matrix
+```
+
+## Demo of basic R skills 3
+```{r mpg}
+summary(mpg)
+```
+
