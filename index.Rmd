@@ -1,14 +1,22 @@
+
 ---
-title: "My Homepage"
+title: "R Code"
 ---
+<br>
 
 # Hello, I'm Katie! I made this website using R Markdown!
+<br>
 
 * Models coming soon!
+<br>
 
 * Right now this page is very basic, because it is a work in progress
+<br>
 
 * Check back regularly to join me on my data science journey
+<br>
+<br>
+
 
 ```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
