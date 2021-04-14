@@ -9,11 +9,12 @@ title: "R Code"
 # About this page:
 <br>
 
-### * I made this R Markdown website to demonstrate and teach R skills
-### * It looks basic right now, because it is a work in progress
-### * My first project was a PCA one, see below
-### * I plan to add more advanced models as time goes by
-### * Check back regularly to join me on my data science journey
+* I made this R Markdown website to demonstrate and teach R skills
+* It looks basic right now, because it is a work in progress
+* My first project was a PCA one, see below
+* I plan to add more advanced models as time goes by
+* Check back regularly to join me on my data science journey
+<br>
 <br>
 
 Disclaimer: Code and stat tips originate from my experience in academic research. Always remember to use reliable literature (published text books, academic research papers, your own class notes) and fact check when using a website as a resource. I will try to keep everything as accurate as possible, but feel free to contact me if you have any questions on facts, figures and references. I hope you find this page useful! Enjoy!
