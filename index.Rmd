@@ -19,6 +19,9 @@ Disclaimer: Code and stat tips originate from my experience in academic research
 
 ```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, results = 'hide', message = FALSE}
 library(tidyverse)
 ```
 
@@ -39,8 +42,16 @@ a_vector
 a_matrix <- matrix(c(1, 2, 3, 4),nrow =2, ncol=2)
 a_matrix
 ```
+<br>
 
 ## Demo of PCA on iris data
+
+PCA reference: Statistics class notes combined with my own opinions and interpretation
+<br>
+
+PCA is useful for dimention reduction and identifying drivers
+<br>
+
 ```{r view iris}
 data(iris)
 # View(iris)
@@ -58,17 +69,41 @@ fit
 ```{r round the summary}
 round(fit$rotation, 2)
 ```
+The magnitude of the loadings are important, however the signs on the loadings are arbitrary. It matters if the loadings have opposite signs, but not which is positive and which is negative.
+<br>
+
+In PC1, Sepal.length, Petal.Length and Petal.Width all have large positive loadings, whereas Sepal.Width has a negative loading which is close to zero.
+<br>
+
+We could interpret the first PC as an overall measure of the ‘size’ of the flower. The sepal width variable has close to zero loading.
+<br>
+
+PC2 is contrasting flowers that have large sepals against flowers that have long petals.
+<br>
 
 ```{r summary of fit}
 summary(fit)
 ```
 
 With regard to the code chunk above, it is important to note that the value of a particular eigenvalue divided by the sum of the eigenvalues is called the proportion of variance 
-explained by that principal component (REF: A past stat class) 
+explained by that principal component (REF: A past statistics class) 
 
+```{r plot prop of var explained}
+# We can plot the proportion of variance explained by each PC using:
+plot(fit, main = "Scree plot", xlab = "Comps 1:4")
+```
 
+```{r predict from fit, results = "hide"}
+newiris = predict(fit)
+newiris
+```
 
+To get a ‘picture’ of the reduced dimensional data we often produce a scatter plot of the scores on one PC against the scores on another PC. As we have decided that only PC1 (and maybe PC2) need to be considered we can use the plot function to plot the values of PC1 against PC2 (REF: A past statistics class) 
 
+```{r PC1 scores v PC2 scores}
+plot(newiris[,1], newiris[,2], type="n", xlab="PC1", ylab="PC2")
+text(newiris[,1], newiris[,2], labels=substr(iris[,5],1,2), col=as.integer(iris[,5]))
+```
 
-
+You will notice that we have performed PCA on the unstandardised data. Sometimes the data are standardised before performing PCA (REF: A past statistics class) 
 
