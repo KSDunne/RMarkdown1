@@ -6,10 +6,9 @@ title: "R Code"
 # Hello, I'm Katie! I made this website using R Markdown!
 <br>
 
-### * Models coming soon
-
 ### * This page looks basic right now, because it is a work in progress
-
+### * My first project was a PCA one, see below
+### * I plan to add more advanced models as time goes by
 ### * Check back regularly to join me on my data science journey
 <br>
 
