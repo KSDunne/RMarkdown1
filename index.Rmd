@@ -12,6 +12,9 @@ title: "R Code"
 
 ### * Check back regularly to join me on my data science journey
 <br>
+
+Disclaimer: Code and stat tips originate from my experience in academic research. Always remember to use reliable literature (published text books, academic research papers, your own class notes) and fact check when using a website as a resource. I will try to keep everything as accurate as possible, but feel free to contact me if you have any questions on facts, figures and references. I hope you find this page useful! Enjoy!
+<br>
 <br>
 
 ```{r setup, include=TRUE}
@@ -37,8 +40,35 @@ a_matrix <- matrix(c(1, 2, 3, 4),nrow =2, ncol=2)
 a_matrix
 ```
 
-## Demo of basic R skills 3
-```{r mpg}
-summary(mpg)
+## Demo of PCA on iris data
+```{r view iris}
+data(iris)
+# View(iris)
 ```
+
+```{r summary of iris data}
+summary(iris)
+```
+
+```{r prcomp fit}
+fit = prcomp(iris[,1:4])
+fit
+```
+
+```{r round the summary}
+round(fit$rotation, 2)
+```
+
+```{r summary of fit}
+summary(fit)
+```
+
+With regard to the code chunk above, it is important to note that the value of a particular eigenvalue divided by the sum of the eigenvalues is called the proportion of variance 
+explained by that principal component (REF: A past stat class) 
+
+
+
+
+
+
 
