@@ -4,11 +4,16 @@ title: "My Homepage"
 
 # Hello, I'm Katie! I made this website using R Markdown!
 
+* Models coming soon!
+
+* Right now this page is very basic, because it is a work in progress
+
+* Check back regularly to join me on my data science journey
+
 ```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
-
 
 ```{r check-wd}
 getwd()
