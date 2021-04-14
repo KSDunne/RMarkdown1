@@ -7,10 +7,8 @@ title: "R Code"
 <br>
 
 ### * Models coming soon
-<br>
 
 ### * This page looks basic right now, because it is a work in progress
-<br>
 
 ### * Check back regularly to join me on my data science journey
 <br>
