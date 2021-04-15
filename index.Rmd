@@ -17,7 +17,7 @@ title: "R Code"
 <br>
 <br>
 
-Disclaimer: Code and stat tips originate from my experience in academic research. Always remember to use reliable literature (published text books, academic research papers, your own class notes) and fact check when using a website as a resource. I will try to keep everything as accurate as possible, but feel free to contact me if you have any questions on facts, figures and references. I hope you find this page useful! Enjoy!
+Disclaimer: Code and stat tips originate from my experience in academic research. Always remember to use reliable literature (language documentation, published text books, academic research papers, your own class notes) and fact check when using a website as a resource. I will try to keep everything as accurate as possible, but feel free to contact me if you have any questions on facts, figures and references. I hope you find this page useful! Enjoy!
 <br>
 <br>
 
@@ -25,11 +25,11 @@ Disclaimer: Code and stat tips originate from my experience in academic research
 <br>
 
 ```{r setup, include=TRUE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE) #Setting this equal to true allows the code to show up on the page
 ```
 
 ```{r libraries, results = 'hide', message = FALSE}
-library(tidyverse)
+library(tidyverse) #Includes packages such as; ggplot2, dplyr, tibble and more
 ```
 
 ```{r check-wd}
