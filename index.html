@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>R Code</title>
+
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Katie S. Dunne</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="https://www.ksdunne.com/">Home</a>
+</li>
+<li>
+  <a href="index.html">Index</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">R Code</h1>
+
+</div>
+
+
+<p><br></p>
+<div id="hello-im-katie-i-made-this-website-using-r-markdown" class="section level1">
+<h1>Hello, I’m Katie! I made this website using R Markdown!</h1>
+<p><br></p>
+</div>
+<div id="about-this-page" class="section level1">
+<h1>About this page:</h1>
+<p><br></p>
+<ul>
+<li>I made this R Markdown website to demonstrate and teach R skills</li>
+<li>It looks basic right now, because it is a work in progress</li>
+<li>My first project was a PCA one, see below</li>
+<li>I plan to add more advanced models as time goes by</li>
+<li>Check back regularly to join me on my data science journey <br> <br></li>
+</ul>
+<p>Disclaimer: Code and stat tips originate from my experience in academic research. Always remember to use reliable literature (language documentation, published text books, academic research papers, your own class notes) and fact check when using a website as a resource. I will try to keep everything as accurate as possible, but feel free to contact me if you have any questions on facts, figures and references. I hope you find this page useful! Enjoy! <br> <br></p>
+</div>
+<div id="lets-get-started" class="section level1">
+<h1>Let’s get started!</h1>
+<p><br></p>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE) #Setting this equal to true allows the code to show up on the page</code></pre>
+<pre class="r"><code>library(tidyverse) #Includes packages such as; ggplot2, dplyr, tibble and more</code></pre>
+<pre class="r"><code>getwd()</code></pre>
+<pre><code>## [1] &quot;/Users/katiedunne/Documents/April2021/R_April2021/RMarkdown1&quot;</code></pre>
+<div id="demo-of-basic-r-skills-1" class="section level2">
+<h2>Demo of basic R skills 1</h2>
+<pre class="r"><code># Vector
+a_vector &lt;- c(3, 4)
+a_vector</code></pre>
+<pre><code>## [1] 3 4</code></pre>
+</div>
+<div id="demo-of-basic-r-skills-2" class="section level2">
+<h2>Demo of basic R skills 2</h2>
+<pre class="r"><code># Matrix
+a_matrix &lt;- matrix(c(1, 2, 3, 4),nrow =2, ncol=2)
+a_matrix</code></pre>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<p><br></p>
+</div>
+<div id="demo-of-pca-on-iris-data" class="section level2">
+<h2>Demo of PCA on iris data</h2>
+<p>PCA reference: Statistics class notes combined with my own opinions and interpretation <br></p>
+<p>PCA is useful for dimention reduction and identifying drivers <br></p>
+<pre class="r"><code>data(iris)
+# View(iris)</code></pre>
+<pre class="r"><code>summary(iris)</code></pre>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
+<pre class="r"><code>fit = prcomp(iris[,1:4])
+fit</code></pre>
+<pre><code>## Standard deviations (1, .., p=4):
+## [1] 2.0562689 0.4926162 0.2796596 0.1543862
+## 
+## Rotation (n x k) = (4 x 4):
+##                      PC1         PC2         PC3        PC4
+## Sepal.Length  0.36138659 -0.65658877  0.58202985  0.3154872
+## Sepal.Width  -0.08452251 -0.73016143 -0.59791083 -0.3197231
+## Petal.Length  0.85667061  0.17337266 -0.07623608 -0.4798390
+## Petal.Width   0.35828920  0.07548102 -0.54583143  0.7536574</code></pre>
+<pre class="r"><code>round(fit$rotation, 2)</code></pre>
+<pre><code>##                PC1   PC2   PC3   PC4
+## Sepal.Length  0.36 -0.66  0.58  0.32
+## Sepal.Width  -0.08 -0.73 -0.60 -0.32
+## Petal.Length  0.86  0.17 -0.08 -0.48
+## Petal.Width   0.36  0.08 -0.55  0.75</code></pre>
+<p>The magnitude of the loadings are important, however the signs on the loadings are arbitrary. It matters if the loadings have opposite signs, but not which is positive and which is negative. <br></p>
+<p>In PC1, Sepal.length, Petal.Length and Petal.Width all have large positive loadings, whereas Sepal.Width has a negative loading which is close to zero. <br></p>
+<p>We could interpret the first PC as an overall measure of the ‘size’ of the flower. The sepal width variable has close to zero loading. <br></p>
+<p>PC2 is contrasting flowers that have large sepals against flowers that have long petals. <br></p>
+<pre class="r"><code>summary(fit)</code></pre>
+<pre><code>## Importance of components:
+##                           PC1     PC2    PC3     PC4
+## Standard deviation     2.0563 0.49262 0.2797 0.15439
+## Proportion of Variance 0.9246 0.05307 0.0171 0.00521
+## Cumulative Proportion  0.9246 0.97769 0.9948 1.00000</code></pre>
+<p>With regard to the code chunk above, it is important to note that the value of a particular eigenvalue divided by the sum of the eigenvalues is called the proportion of variance explained by that principal component (REF: A past statistics class)</p>
+<pre class="r"><code># We can plot the proportion of variance explained by each PC using:
+plot(fit, main = &quot;Scree plot&quot;, xlab = &quot;Comps 1:4&quot;)</code></pre>
+<p><img src="index_files/figure-html/plot%20prop%20of%20var%20explained-1.png" width="672" /></p>
+<pre class="r"><code>newiris = predict(fit)
+newiris</code></pre>
+<p>To get a ‘picture’ of the reduced dimensional data we often produce a scatter plot of the scores on one PC against the scores on another PC. As we have decided that only PC1 (and maybe PC2) need to be considered we can use the plot function to plot the values of PC1 against PC2 (REF: A past statistics class)</p>
+<pre class="r"><code>plot(newiris[,1], newiris[,2], type=&quot;n&quot;, xlab=&quot;PC1&quot;, ylab=&quot;PC2&quot;)
+text(newiris[,1], newiris[,2], labels=substr(iris[,5],1,2), col=as.integer(iris[,5]))</code></pre>
+<p><img src="index_files/figure-html/PC1%20scores%20v%20PC2%20scores-1.png" width="672" /></p>
+<p>You will notice that we have performed PCA on the unstandardised data. Sometimes the data are standardised before performing PCA (REF: A past statistics class)</p>
+</div>
+</div>
+
+<p>&copy; 2021 Katie S. Dunne</p>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
